@@ -1,19 +1,19 @@
 #pragma once
-#include <iostream>
 #include <string>
-#define _CRT_SECURE_NO_WARNINGS
-using std::cout;
-using std::cin;
-using std::endl;
-class Plorg {
+
+class Person {
 private:
-	char name_[19];
-	double CI_;
+	static const int LIMIT = 25;
+	std::string lastName; // Person's last name
+	char fname[LIMIT]; // Person's first name
 public:
-	Plorg(char const* name = "Plorga", double CI = 50) {
-		strcpy_s(name_, name);
-		CI_ = CI;
-	};
-	void showPlorg() const; // shows current Plorg name and CI
-	void setCI(int n); // set Plorg CI to new value
+	Person() {
+		lastName = "";
+		fname[0] = '\0';
+		std::cout << "\nUsing default constructor.\nInitialisation done.\n";
+	} // #1
+	Person(const std::string & ln, const char * fn = "Hey you"); // #2
+	// the following methods display lname and fname
+	void Show() const; // first name last name format
+	void FormalShow() const; // last name, first name format
 };
